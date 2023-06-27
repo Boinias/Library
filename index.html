@@ -6,9 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
 </head>
 <body>
-    
+    <div id="title">
+        <p>Your Library</p>
+    </div>
+    <div id="addBookDiv">
+        <button id='addBook' type="button" class="button" onclick="displayForm()">Add Book</button>
+    </div>
+    <div id="library">
+
+    </div>
+    <div id="formDiv">
+        <form id="form">
+
+            <label for="author">Author</label>
+            <input type="text" id="author" placeholder="Author">
+
+            <label for="name">Title</label>
+            <input type="text" id="name" placeholder="Author">
+
+            <label for="pages">Number of Pages</label>
+            <input type="tel" id="pages" placeholder="123">
+
+            <div id="checkbox">
+                <label for="readStatus">Read?</label>
+                <input type="checkbox" id="readStatus">
+            </div>
+            
+            <button id="submitButton" type="submit" onclick="addInfo()">Submit</button>
+
+        </form>
+    </div>
+
+    <div id="library">fd</div>
+
+</div><div id="dimBg">
 </body>
+<script src="script.js" defer></script>
 </html>

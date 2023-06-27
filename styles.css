@@ -1,0 +1,88 @@
+html,
+body {
+   margin: 0;
+   padding: 10px;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-size: 1.3em;
+   color: rgb(32, 32, 32);
+   position: relative;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(232, 255, 255);
+}
+
+#title, #addBookDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#addBook {
+    Display: inline-block;
+    Border: none;
+    Padding: 4px 12px;
+    Font-size: 20px;
+    Font-weight: normal;
+    Text-align: center;
+    Cursor: pointer;
+    Border-radius: 4px;
+}
+
+#form {
+    display: none;
+    position: absolute;
+    left: 38vw;
+    bottom: -53vh;
+    z-index: 2;
+    flex-direction: column;
+    align-items: center;
+    background-color: bisque;
+    min-width: fit-content;
+    width: 400px;
+    gap: 10px;
+    padding: 30px 50px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+#form #checkbox {
+    display: flex;
+    gap: 10px;
+}
+
+#form input[type="text"],
+#form input[type="tel"] {
+    width: 250px;
+}
+
+#library {
+    display: grid;
+    height: 100%;
+}
+
+#dimBg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #000;
+    opacity: 0.3;
+    width: 100vw;
+    height: 100vh;
+  }
+
+
+  
+  button:hover,
+  button:focus {
+    outline: none;
+    background: #000;
+    color: #fff;
+  }
+  
