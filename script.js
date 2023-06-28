@@ -6,10 +6,6 @@ let library = [
 let addBook = document.getElementById('addBook')
 let form = document.getElementById('form');
 
-document.getElementById('addBook').addEventListener('click', () => {
-
-});
-
 function displayForm () {
     form.style.display = 'flex';
     dimBg.style.display = 'flex';
@@ -21,10 +17,10 @@ function hideForm () {
 }
 
 
-  function addInfo() {
+  function submitButtonTrigger() {
     document.getElementById('form').addEventListener('submit', (e) => {
       e.preventDefault();
-  
+      
       var author = document.getElementById('author').value;
       var name = document.getElementById('name').value;
       var pages = document.getElementById('pages').value;
@@ -38,9 +34,12 @@ function hideForm () {
       };
   
       library.push(book);
-      console.log(library)
 
+      displayObjs ()
+      hideForm ()
+      clearForm ()
     })
+
 };
 
 
@@ -58,6 +57,50 @@ function clearForm () {
         }
     }
 }
+
+function displayObjs () {
+    var newestBook = library[library.length - 1];
+    var details = [newestBook.author, newestBook.title, newestBook.pages, newestBook.readStatus]
+    var idCreator = ['author', 'title', 'pages', 'readStatusDisplay']
+    let libraryDiv = document.getElementById('library')
+
+    library.forEach(function(book) {
+    var newObj = document.createElement('div')
+    newObj.style.width = "300px";
+    newObj.style.height = '100px';
+    newObj.style.backgroundColor = 'green';
+    
+    for (i=0; i < 4; i++) {
+    var newDetail = document.createElement('div')
+    newDetail.id = `${idCreator[i]}`;
+
+    newDetail.style.width = "80px";
+    newDetail.style.height = '80px';
+    newDetail.style.backgroundColor = 'white';
+    newDetail.style.color = 'black';
+    newDetail.textContent = `${details[i]}`
+
+    newObj.appendChild(newDetail);
+    }
+    libraryDiv.appendChild(newObj);
+    })
+};
+
+console.log(library);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // function displayObj () {
 //     var newObj = document.createElement('div')
@@ -93,27 +136,3 @@ function clearForm () {
 
 //     library.appendChild(newObj);
 // };
-
-function displayObjs () {
-    var library = document.getElementById('library');
-    var newestBook = library[library.length-1];
-
-    library.forEach(function(book) {
-    var newObj = document.createElement('div')
-    newObj.style.width = "300px";
-    newObj.style.height = '100px';
-    newObj.style.backgroundColor = 'green';
-    
-    for (i=0; i < 5; i++) {
-    var newDetail = document.createElement('div')
-
-    newdetail.style.width = "80px";
-    newdetail.style.height = '80px';
-    newdetail.style.backgroundColor = 'white';
-    newdetail.style.color = 'black';
-
-    newObj.appendChild(newDetail);
-    }
-
-    })
-};
