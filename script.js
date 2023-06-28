@@ -37,12 +37,15 @@ function displayObjs () {
     var idCreator = ['author', 'title', 'pages', 'readStatusDisplay']
     let libraryDiv = document.getElementById('library')
 
+    //make master div
     library.forEach(function(book) {
     var newObj = document.createElement('div')
     newObj.style.width = "300px";
     newObj.style.height = '100px';
     newObj.style.backgroundColor = 'green';
+    newObj.id = `BookOjectFor${newestBook.title}`
     
+    //make info detail displays
     for (i=0; i < 4; i++) {
     var newDetail = document.createElement('div')
     newDetail.id = `${idCreator[i]}`;
@@ -55,6 +58,38 @@ function displayObjs () {
 
     newObj.appendChild(newDetail);
     }
+    
+    //make readStatus button
+    var button = document.createElement('button')
+    button.id = 'delete'
+    button.textContent = "Delete"
+    button.style.display = 'inline-block';
+    button.style.border = 'none';
+    button.style.padding = '4px 12px';
+    button.style.fontSize = "normal";
+    button.style.fontWeight = 'normal';
+    button.style.textAlign = 'center';
+    button.Cursor = 'pointer';
+    button.style.borderRadius = '4px';
+
+    button.addEventListener('click', (e) => {
+        let bookDiv = e.target.parentNode;
+        let title = bookDiv.querySelector('#title').textContent
+
+        for (let i = 0; i <= library.length; i++) {
+            let array = Object.values(library[i])
+            if (array.includes(title)) {
+                library.splice(i,1)
+            }
+        }
+
+        libraryDiv.removeChild(bookDiv)
+
+    })
+
+    newObj.appendChild(button);
+
+
     libraryDiv.appendChild(newObj);
     })
 };
