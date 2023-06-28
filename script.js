@@ -16,33 +16,6 @@ function hideForm () {
     dimBg.style.display = 'none';
 }
 
-
-  function submitButtonTrigger() {
-    document.getElementById('form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      var author = document.getElementById('author').value;
-      var name = document.getElementById('name').value;
-      var pages = document.getElementById('pages').value;
-      var readStatus = document.getElementById('readStatus').checked;
-  
-      var book = {
-        author: author,
-        title: name,
-        pages: pages,
-        readStatus: readStatus ? 'read' : 'unread'
-      };
-  
-      library.push(book);
-
-      displayObjs ()
-      hideForm ()
-      clearForm ()
-    })
-
-};
-
-
 function clearForm () {
     let form = document.getElementById('form')
     let inputs = document.getElementsByTagName('input')
@@ -86,19 +59,55 @@ function displayObjs () {
     })
 };
 
-console.log(library);
 
+// document.getElementById('form').addEventListener('submit', submitButtonTrigger)
 
+// function submitButtonTrigger(e) {
+//     e.preventDefault();
+//     var author = document.getElementById('author').value;
+//     var name = document.getElementById('name').value;
+//     var pages = document.getElementById('pages').value;
+//     var readStatus = document.getElementById('readStatus').checked;
+  
+//     var book = {
+//       author: author,
+//       title: name,
+//       pages: pages,
+//       readStatus: readStatus ? 'read' : 'unread'
+//     };
+  
+//     library.push(book);
+      
+//     console.log(library);
+    
+//     displayObjs();
+//     hideForm();
+//     clearForm();
+//   }
 
+    form.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-
-
-
-
-
-
-
-
+    var author = document.getElementById('author').value;
+    var name = document.getElementById('name').value;
+    var pages = document.getElementById('pages').value;
+    var readStatus = document.getElementById('readStatus').checked;
+  
+    var book = {
+      author: author,
+      title: name,
+      pages: pages,
+      readStatus: readStatus ? 'read' : 'unread'
+    };
+  
+    library.push(book);
+      
+    console.log(library);
+    
+    displayObjs();
+    hideForm();
+    clearForm();
+    });
 
 
 
