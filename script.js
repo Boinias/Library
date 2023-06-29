@@ -200,7 +200,7 @@ function displayObjs() {
   let libraryDiv = document.getElementById('library');
 
   libraryDiv.innerHTML = ''; // Clear the existing content
-  
+
   library.forEach(function(book) {
     var newObj = document.createElement('div');
     newObj.style.display = 'flex';
@@ -256,9 +256,9 @@ function displayObjs() {
     readStatusBtn.style.borderRadius = '4px';
 
     readStatusBtn.addEventListener('click', function() {
-      var bookStatus = newObj.querySelector('#readStatusDisplay');
-      var bookReadStatus = bookStatus.textContent;
-      var bookTitle = newObj.querySelector('#title').textContent;
+      var bookStatus = newObj.querySelector('#readStatusDisplay').textContent;
+      var bookTitle = readStatusBtn.previousElementSibling.previousElementSibling.previousElementSibling.textContent
+      bookTitle = bookTitle.slice(7);
       var bookIndex = library.findIndex(book => book.title === bookTitle);
 
       if (bookReadStatus === 'read') {
