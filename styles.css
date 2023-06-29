@@ -26,6 +26,7 @@ body {
     Display: inline-block;
     Border: none;
     Padding: 4px 12px;
+    margin-bottom: 30px;
     Font-size: 20px;
     Font-weight: normal;
     Text-align: center;
@@ -64,8 +65,12 @@ body {
 
 #library {
     display: grid;
-    height: 100%;
-}
+    grid-column: 1/4;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-auto-rows: 400px;
+    grid-auto-flow: row;
+    gap: 10px;
+  }
 
 #dimBg {
     display: none;
