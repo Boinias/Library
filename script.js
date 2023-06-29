@@ -165,6 +165,12 @@ let library = [];
 let addBook = document.getElementById('addBook');
 let form = document.getElementById('form');
 
+let dimBackground = document.getElementById('dimBg')
+dimBackground.addEventListener('click', () => {
+  hideForm()
+  clearForm()
+})
+
 function displayForm() {
   form.style.display = 'flex';
   dimBg.style.display = 'flex';
@@ -192,8 +198,9 @@ function clearForm() {
 
 function displayObjs() {
   let libraryDiv = document.getElementById('library');
-  libraryDiv.innerHTML = '';
 
+  libraryDiv.innerHTML = ''; // Clear the existing content
+  
   library.forEach(function(book) {
     var newObj = document.createElement('div');
     newObj.style.display = 'flex';
@@ -235,6 +242,7 @@ function displayObjs() {
 
       newObj.appendChild(newDetail);
     }
+    
 
     var readStatusBtn = document.createElement('button');
     readStatusBtn.textContent = 'Change Read Status';
@@ -268,6 +276,7 @@ function displayObjs() {
 
     newObj.appendChild(readStatusBtn);
 
+
     var button = document.createElement('button');
     button.id = 'delete';
     button.textContent = 'Delete';
@@ -285,13 +294,15 @@ function displayObjs() {
       let bookIndex = library.findIndex(book => book.title === title.textContent);
         library.splice(bookIndex, 1);
         libraryDiv.removeChild(newObj);
-        
+
       console.log(library);
     });
+
 
     newObj.appendChild(button);
 
     libraryDiv.appendChild(newObj);
+
   });
 }
 

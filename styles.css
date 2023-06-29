@@ -65,11 +65,11 @@ body {
 
 #library {
     display: grid;
-    grid-column: 1/4;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-auto-rows: 400px;
     grid-auto-flow: row;
     gap: 10px;
+    justify-content: center;
   }
 
 #dimBg {
