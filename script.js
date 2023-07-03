@@ -255,6 +255,7 @@ function displayObjs() {
     readStatusBtn.style.cursor = 'pointer';
     readStatusBtn.style.borderRadius = '4px';
 
+    // bookindex is updating correctly, but now the visual isnt and idek yet if the array is, look at if statemetn to fix.
     readStatusBtn.addEventListener('click', function() {
       var bookStatus = newObj.querySelector('#readStatusDisplay').textContent;
       var bookTitle = readStatusBtn.previousElementSibling.previousElementSibling.previousElementSibling.textContent
